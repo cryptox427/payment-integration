@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('../partials/head'); %>
+        </head>
+        <body class="container">
+
+            <header>
+                <%- include('../partials/header'); %>
+                </header>
+
+                <main>
+                    <div class="jumbotron">
+                        <h1>Paypal is great</h1>
+                        <p>Welcome to templating using EJS</p>
+                    </div>
+                    <div class="container" style="text-align: center">
+                        <form name="paypal_" method="post" action="/pay">
+                            <h3>Single Payout</h3>
+                            <div class="form-group">
+                                <label for="amount">Amount <span style="color:
+                                        red">*</span></label>
+                                <input type="number" class="form-control"
+                                    id="amount"
+                                    name="amount" placeholder="eg. 100" required
+                                    />
+                            </div>
+                            <div class="form-group">
+                                <label for="cType">Currency <span style="color:
+                                        red">*</span></label>
+                                <select id="cType" name="cType"
+                                    class="form-control" required>
+                                    <option value="USD">USD</option>
+                                    <option value="EUR">EUR</option>
+                                    <option value="CAD">CAD</option>
+                                    <option value="GBP">GBP</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Pay
+                                Now</button>
+                        </form>
+                    </div>
+                    <br/>
+                        <div class="container" style="text-align: center;">
+                            <form name="paypal__" action="/pay-batch"
+                                method="post">
+                                <h3>Batch Payout</h3>
+                                <div class="row">
+                                    <div class="col-md-12" style="display:
+                                        flex;">
+                                        <div class="col-md-6">
+                                            <h6>First Receptionist</h6>
+                                            <div class="form-group">
+                                                <label for="email">Email <span
+                                                        style="color:
+                                                        red">*</span></label>
+                                                <input type="email" name="email"
+                                                    id="email"
+                                                    placeholder="****@gmail.com"
+                                                    class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="amount">Amount
+                                                    <span
+                                                        style="color:
+                                                        red">*</span></label>
+                                                <input type="number"
+                                                    class="form-control"
+                                                    id="amount"
+                                                    name="amount"
+                                                    placeholder="eg.100"
+                                                    required
+                                                    />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="cType">Currency
+                                                    <span
+                                                        style="color:
+                                                        red">*</span></label>
+                                                <select id="cType"
+                                                    name="cType"
+                                                    class="form-control"
+                                                    required>
+                                                    <option value="USD">USD</option>
+                                                    <option value="EUR">EUR</option>
+                                                    <option value="CAD">CAD</option>
+                                                    <option value="GBP">GBP</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6>Second Receptionist</h6>
+                                            <div class="form-group">
+                                                <label for="email2">Email <span
+                                                        style="color:
+                                                        red">*</span></label>
+                                                <input type="email"
+                                                    name="email2"
+                                                    id="email2"
+                                                    placeholder="****@gmail.com"
+                                                    class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="amount">Amount
+                                                    <span
+                                                        style="color:
+                                                        red">*</span></label>
+                                                <input type="number"
+                                                    class="form-control"
+                                                    id="amount"
+                                                    name="amount2"
+                                                    placeholder="eg.100"
+                                                    required
+                                                    />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="cType">Currency
+                                                    <span
+                                                        style="color:
+                                                        red">*</span></label>
+                                                <select id="cType"
+                                                    name="cType2"
+                                                    class="form-control"
+                                                    required>
+                                                    <option value="USD">USD</option>
+                                                    <option value="EUR">EUR</option>
+                                                    <option value="CAD">CAD</option>
+                                                    <option value="GBP">GBP</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn
+                                    btn-primary">Pay
+                                    Now</button>
+                            </form>
+                        </div>
+                        <br/>
+                            <div class="container" style="text-align: center;">
+                                <h3>Invoice</h3>
+                                <form action="/pay-invoice" name="_paypal" method="post">
+                                    <div class="form-group">
+                                        <label for="invoice_cName">Your Company
+                                            Name
+                                            <span
+                                                style="color:
+                                                red">*</span></label>
+                                        <input type="text" name="invoice_cName"
+                                            id="invoice_cName"
+                                            placeholder="Your Company Name"
+                                            class="form-control"
+                                            required/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="invoice_name">Your Name
+                                            <span
+                                                style="color:
+                                                red">*</span></label>
+                                        <input type="text" name="invoice_name"
+                                            id="invoice_name"
+                                            placeholder="YourName"
+                                            class="form-control"
+                                            required/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="invoice_email">Email Address
+                                            <span
+                                                style="color:
+                                                red">*</span></label>
+                                        <input type="email" name="invoice_email"
+                                            id="invoice_email"
+                                            placeholder="Email Address"
+                                            class="form-control" required/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="invoice_no">Invoice#
+                                            <span
+                                                style="color:
+                                                red">*</span></label>
+                                        <input type="text" name="invoice_no"
+                                            id="invoice_no"
+                                            placeholder="0001"
+                                            class="form-control" required/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="invoice_due">Due Date
+                                            <span
+                                                style="color:
+                                                red">*</span></label>
+                                        <input type="date" name="invoice_due"
+                                            id="invoice_due"
+                                            placeholder="0001"
+                                            class="form-control" required/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="invoice_currency">Currency
+                                            <span
+                                                style="color:
+                                                red">*</span></label>
+                                        <select id="invoice_currency"
+                                            name="invoice_currency"
+                                            class="form-control"
+                                            required>
+                                            <option value="USD">USD</option>
+                                            <option value="EUR">EUR</option>
+                                            <option value="CAD">CAD</option>
+                                            <option value="GBP">GBP</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="invoice_to_name">Customer
+                                            Name
+                                            <span
+                                                style="color:
+                                                red">*</span></label>
+                                        <input type="text"
+                                            name="invoice_to_name"
+                                            id="invoice_to_name"
+                                            placeholder="Customer Name"
+                                            class="form-control" required/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="invoice_to_email">Customer
+                                            Email Address
+                                            <span
+                                                style="color:
+                                                red">*</span></label>
+                                        <input type="email"
+                                            name="invoice_to_email"
+                                            id="invoice_to_email"
+                                            placeholder="Customer Email Address"
+                                            class="form-control" required/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="invoice_subTotal">Subtotal
+                                            <span
+                                                style="color:
+                                                red">*</span></label>
+                                        <input type="number"
+                                            name="invoice_subTotal"
+                                            id="invoice_subTotal"
+                                            placeholder="150"
+                                            class="form-control" required/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="invoice_shipping">Shipping
+                                            <span
+                                                style="color:
+                                                red">*</span></label>
+                                        <input type="number"
+                                            name="invoice_shipping"
+                                            id="invoice_shipping"
+                                            placeholder="150"
+                                            class="form-control" required/>
+                                    </div>
+                                    <button type="submit" class="btn
+                                        btn-primary">Send
+                                        Now</button>
+                                </form>
+                            </div>
+                            <br/>
+                            </main>
+
+                            <footer style="display: fixed; left: 0; bottom: 0;">
+                                <%- include('../partials/footer'); %>
+                                </footer>
+
+                            </body>
+                        </html>
