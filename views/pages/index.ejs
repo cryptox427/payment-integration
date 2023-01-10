@@ -38,6 +38,7 @@
                             </div>
                             <button type="submit" class="btn btn-primary">Pay
                                 Now</button>
+                            <p style="color: red; display: none" id="noti"></p>
                         </form>
                     </div>
                     <br/>
@@ -45,6 +46,15 @@
                             <form name="paypal__" action="/pay-batch"
                                 method="post">
                                 <h3>Batch Payout</h3>
+                                <!-- <div class="form-group">
+                                    <label for="batch_id">Batch ID <span
+                                            style="color:
+                                            red">*</span></label>
+                                    <input type="text" name="batch_id"
+                                        id="batch_id"
+                                        placeholder="eg.202301091638"
+                                        class="form-control" />
+                                </div> -->
                                 <div class="row">
                                     <div class="col-md-12" style="display:
                                         flex;">
@@ -139,7 +149,8 @@
                         <br/>
                             <div class="container" style="text-align: center;">
                                 <h3>Invoice</h3>
-                                <form action="/pay-invoice" name="_paypal" method="post">
+                                <form action="/pay-invoice" name="_paypal"
+                                    method="post">
                                     <div class="form-group">
                                         <label for="invoice_cName">Your Company
                                             Name
@@ -268,3 +279,13 @@
 
                             </body>
                         </html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.js"></script>
+<script>
+    var socket = io();
+    socket.on('webhooks', msg => {
+        console.log(msg);
+        document.getElementById("noti").innerText = `Payment Succeed. ${msg?.resource.amount.total}${msg?.resource.amount.currency}`
+        document.getElementById("noti").style.display = "block"
+    })
+</script>
